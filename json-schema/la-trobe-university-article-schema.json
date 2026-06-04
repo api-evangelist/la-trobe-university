@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/la-trobe-university/main/json-schema/la-trobe-university-article-schema.json",
+  "title": "La Trobe OPAL Article",
+  "description": "JSON Schema for a complete public article (publication, thesis, dataset, educational resource) returned by the Figshare REST API GET /articles/{article_id} endpoint that backs La Trobe University's OPAL (Open @ La Trobe) repository. Derived faithfully from the upstream Figshare ArticleComplete schema and a live La Trobe record.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "doi",
+    "url",
+    "url_public_html",
+    "published_date",
+    "defined_type",
+    "defined_type_name",
+    "timeline",
+    "authors",
+    "files"
+  ],
+  "properties": {
+    "id": { "type": "integer", "description": "Unique identifier for the article." },
+    "title": { "type": "string", "description": "Title of the article." },
+    "doi": { "type": "string", "description": "DOI assigned to the article (La Trobe uses the 10.26181 prefix)." },
+    "handle": { "type": "string", "description": "Persistent handle, may be empty." },
+    "url": { "type": "string", "format": "uri", "description": "API endpoint for the article." },
+    "url_public_api": { "type": "string", "format": "uri", "description": "Public API endpoint for the article." },
+    "url_public_html": { "type": "string", "format": "uri", "description": "Public HTML landing page (opal.latrobe.edu.au) for the article." },
+    "url_private_api": { "type": "string", "format": "uri" },
+    "url_private_html": { "type": "string", "format": "uri" },
+    "figshare_url": { "type": "string", "format": "uri", "description": "Article public URL." },
+    "thumb": { "type": "string", "description": "Thumbnail image URL." },
+    "description": { "type": "string", "description": "Description / abstract of the article (HTML)." },
+    "citation": { "type": "string", "description": "Suggested citation for the article." },
+    "defined_type": { "type": "integer", "description": "Numeric item type (e.g. 3 Dataset, 8 Thesis, 17 Educational resource)." },
+    "defined_type_name": { "type": "string", "description": "Human-readable item type name." },
+    "group_id": { "type": "integer", "description": "Figshare group id (La Trobe portal group)." },
+    "resource_title": { "type": "string" },
+    "resource_doi": { "type": "string" },
+    "size": { "type": "integer", "description": "Total size of article files in bytes." },
+    "version": { "type": "integer", "description": "Article version number." },
+    "status": { "type": "string", "description": "Publication status, e.g. 'public'." },
+    "is_public": { "type": "boolean" },
+    "is_confidential": { "type": "boolean" },
+    "is_metadata_record": { "type": "boolean" },
+    "is_embargoed": { "type": "boolean" },
+    "metadata_reason": { "type": "string" },
+    "confidential_reason": { "type": "string" },
+    "embargo_type": { "type": ["string", "null"] },
+    "embargo_title": { "type": "string" },
+    "embargo_reason": { "type": "string" },
+    "embargo_date": { "type": ["string", "null"], "format": "date-time" },
+    "download_disabled": { "type": "boolean" },
+    "has_linked_file": { "type": "boolean" },
+    "created_date": { "type": "string", "format": "date-time" },
+    "modified_date": { "type": "string", "format": "date-time" },
+    "published_date": { "type": "string", "format": "date-time" },
+    "tags": { "type": "array", "items": { "type": "string" }, "description": "Free-text tags." },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "references": { "type": "array", "items": { "type": "string" }, "description": "Reference URLs." },
+    "funding": { "type": ["string", "null"] },
+    "funding_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "grant_code": { "type": "string" },
+          "funder_name": { "type": "string" },
+          "is_user_defined": { "type": "integer" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "description": "License applied to the article.",
+      "required": ["value", "name", "url"],
+      "properties": {
+        "value": { "type": "integer" },
+        "name": { "type": "string", "description": "License name, e.g. 'CC BY 4.0'." },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "description": "Key dates in the article lifecycle.",
+      "properties": {
+        "posted": { "type": "string" },
+        "firstOnline": { "type": "string" },
+        "revision": { "type": "string" },
+        "submission": { "type": "string" },
+        "publisherAcceptance": { "type": "string" },
+        "publisherPublication": { "type": "string" }
+      }
+    },
+    "authors": {
+      "type": "array",
+      "description": "List of article authors.",
+      "items": {
+        "type": "object",
+        "required": ["id", "full_name"],
+        "properties": {
+          "id": { "type": "integer" },
+          "full_name": { "type": "string" },
+          "first_name": { "type": "string" },
+          "last_name": { "type": "string" },
+          "is_active": { "type": "boolean" },
+          "url_name": { "type": "string" },
+          "orcid_id": { "type": "string" }
+        }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "description": "Subject categories assigned to the article.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "parent_id": { "type": "integer" },
+          "title": { "type": "string" },
+          "path": { "type": "string" },
+          "source_id": { "type": "string" },
+          "taxonomy_id": { "type": "integer" }
+        }
+      }
+    },
+    "custom_fields": {
+      "type": "array",
+      "description": "Institution-specific custom metadata fields (e.g. School, Center or Department, Content Advice).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "value": {},
+          "field_type": {
+            "type": "string",
+            "enum": ["text", "textarea", "dropdown", "url", "email", "date", "dropdown_large_list"]
+          },
+          "is_mandatory": { "type": "boolean" },
+          "order": { "type": ["integer", "null"] },
+          "settings": { "type": "object" }
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "description": "List of up to 10 article files.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "size", "download_url"],
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "size": { "type": "integer" },
+          "is_link_only": { "type": "boolean" },
+          "download_url": { "type": "string", "format": "uri" },
+          "supplied_md5": { "type": "string" },
+          "computed_md5": { "type": "string" },
+          "mimetype": { "type": "string" }
+        }
+      }
+    },
+    "folder_structure": {
+      "type": "object",
+      "description": "Mapping of file ids to folder paths, if folders are used."
+    },
+    "related_materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "identifier": { "type": "string" },
+          "identifier_type": { "type": "string" },
+          "relation": { "type": "string" },
+          "title": { "type": "string" },
+          "is_linkout": { "type": "boolean" }
+        }
+      }
+    },
+    "embargo_options": { "type": "array", "items": { "type": "object" } }
+  }
+}

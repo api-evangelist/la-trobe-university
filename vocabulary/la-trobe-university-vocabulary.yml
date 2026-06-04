@@ -1,0 +1,93 @@
+vocabulary:
+  name: La Trobe University OPAL (Figshare) Vocabulary
+  description: >-
+    Controlled vocabulary of the key objects and fields exposed by La Trobe University's
+    OPAL (Open @ La Trobe) open-access repository through the Figshare REST API v2 and its
+    OAI-PMH metadata endpoint. Terms are drawn from the live Figshare article and collection
+    objects observed for the La Trobe institution scope (institution id 234).
+  version: "1.0.0"
+  terms:
+    - term: OPAL
+      definition: >-
+        Open @ La Trobe — La Trobe University's institutional open-access research
+        repository, hosted on the Figshare platform at opal.latrobe.edu.au.
+      tags: [repository, institution, branding]
+    - term: article
+      definition: >-
+        The primary Figshare object representing a single deposited research output
+        (publication, thesis, dataset, poster, educational resource, etc.).
+      tags: [object, core]
+    - term: collection
+      definition: A curated grouping of related articles published under a single DOI.
+      tags: [object, core]
+    - term: doi
+      definition: >-
+        Digital Object Identifier minted for an article or collection; La Trobe uses
+        the 10.26181 DataCite prefix.
+      tags: [identifier, citation]
+    - term: handle
+      definition: Persistent handle identifier for an item; may be empty.
+      tags: [identifier]
+    - term: defined_type
+      definition: >-
+        Numeric code for the item type (e.g. 3 Dataset, 5 Poster, 8 Thesis,
+        9 Software, 12 Preprint, 17 Educational resource, 18 Report).
+      tags: [classification, enum]
+    - term: defined_type_name
+      definition: Human-readable label corresponding to defined_type.
+      tags: [classification]
+    - term: author
+      definition: >-
+        A contributor to an article, carrying full_name and an optional ORCID
+        identifier (orcid_id).
+      tags: [agent, attribution]
+    - term: orcid_id
+      definition: ORCID researcher identifier associated with an author.
+      tags: [identifier, attribution]
+    - term: license
+      definition: >-
+        The reuse license applied to an article, expressed as a name and a
+        canonical license URL (commonly Creative Commons).
+      tags: [rights, reuse]
+    - term: category
+      definition: >-
+        Subject classification assigned to an article from a standard taxonomy,
+        with a hierarchical path of ancestor ids.
+      tags: [classification, taxonomy]
+    - term: custom_fields
+      definition: >-
+        Institution-specific metadata fields configured by La Trobe, such as
+        School, Center or Department, and Content Advice.
+      tags: [metadata, institution]
+    - term: files
+      definition: >-
+        The list of downloadable files attached to an article, each with a
+        download_url, byte size, and MD5 checksums.
+      tags: [content, files]
+    - term: timeline
+      definition: >-
+        Key lifecycle dates for an item (posted, firstOnline,
+        publisherPublication, etc.).
+      tags: [provenance, dates]
+    - term: published_date
+      definition: The date and time the item was made public.
+      tags: [dates]
+    - term: thumb
+      definition: URL of a preview thumbnail image for the item.
+      tags: [media]
+    - term: url_public_html
+      definition: >-
+        Public HTML landing page for the item; for La Trobe items this resolves
+        under opal.latrobe.edu.au.
+      tags: [link, discovery]
+    - term: oai-pmh
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting endpoint
+        (api.figshare.com/v2/oai) supporting the oai_dc prefix and the La Trobe
+        portal set (portal_234) for bulk metadata harvesting.
+      tags: [protocol, harvesting, metadata]
+    - term: institution
+      definition: >-
+        Figshare institution scope used to filter records to a single
+        institution; La Trobe University is institution id 234.
+      tags: [scope, filter]

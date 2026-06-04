@@ -1,0 +1,107 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "datacite": "http://purl.org/spar/datacite/",
+    "latrobe": "https://opal.latrobe.edu.au/vocab#",
+
+    "University": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "sameAs": "schema:sameAs",
+
+    "Article": "schema:CreativeWork",
+    "Collection": "schema:Collection",
+    "Dataset": "schema:Dataset",
+    "Thesis": "schema:Thesis",
+
+    "id": "schema:identifier",
+    "title": "schema:name",
+    "doi": {
+      "@id": "datacite:doi",
+      "@type": "@id"
+    },
+    "handle": "datacite:hdl",
+    "url_public_html": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "figshare_url": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "thumb": {
+      "@id": "schema:thumbnailUrl",
+      "@type": "@id"
+    },
+    "citation": "schema:citation",
+    "defined_type_name": "schema:additionalType",
+    "published_date": {
+      "@id": "schema:datePublished",
+      "@type": "schema:Date"
+    },
+    "created_date": {
+      "@id": "schema:dateCreated",
+      "@type": "schema:Date"
+    },
+    "modified_date": {
+      "@id": "schema:dateModified",
+      "@type": "schema:Date"
+    },
+    "keywords": "schema:keywords",
+    "tags": "schema:keywords",
+    "references": "schema:citation",
+
+    "authors": {
+      "@id": "schema:author",
+      "@container": "@set"
+    },
+    "Author": "schema:Person",
+    "full_name": "schema:name",
+    "first_name": "schema:givenName",
+    "last_name": "schema:familyName",
+    "orcid_id": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+
+    "categories": {
+      "@id": "schema:about",
+      "@container": "@set"
+    },
+    "Category": "schema:DefinedTerm",
+
+    "files": {
+      "@id": "schema:associatedMedia",
+      "@container": "@set"
+    },
+    "PublicFile": "schema:MediaObject",
+    "download_url": {
+      "@id": "schema:contentUrl",
+      "@type": "@id"
+    },
+    "size": "schema:contentSize",
+    "mimetype": "schema:encodingFormat",
+
+    "custom_fields": "latrobe:customField",
+    "group_id": "latrobe:groupId",
+    "institution": "latrobe:institutionId"
+  },
+  "@type": "University",
+  "name": "La Trobe University",
+  "url": "https://www.latrobe.edu.au/",
+  "description": "Public research university in Melbourne, Victoria, Australia. Its open-access repository OPAL (Open @ La Trobe) is hosted on the Figshare platform and exposed via the Figshare REST API v2 and an OAI-PMH endpoint (institution id 234).",
+  "sameAs": [
+    "https://opal.latrobe.edu.au/",
+    "https://www.linkedin.com/school/la-trobe-university/",
+    "https://twitter.com/latrobe",
+    "https://ror.org/01rxfrp27"
+  ]
+}

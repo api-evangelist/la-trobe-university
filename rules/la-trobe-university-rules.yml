@@ -1,0 +1,59 @@
+rules:
+  latrobe-opal-servers-figshare:
+    description: >-
+      La Trobe OPAL is served by the Figshare API v2; the server URL should point at
+      https://api.figshare.com/v2.
+    message: "Server URL should be the Figshare API v2 base (https://api.figshare.com/v2)."
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.figshare\\.com/v2/?$"
+
+  latrobe-opal-operation-description:
+    description: Every public OPAL operation should carry a description.
+    message: "Operation '{{path}}' is missing a description."
+    severity: warn
+    given: $.paths[*][get,post]
+    then:
+      field: description
+      function: truthy
+
+  latrobe-opal-article-has-doi:
+    description: >-
+      Article objects in OPAL are expected to expose a DOI; the Article schema must
+      declare a 'doi' property.
+    message: "Article schema is missing the 'doi' property."
+    severity: error
+    given: $.components.schemas.Article.properties
+    then:
+      field: doi
+      function: truthy
+
+  latrobe-opal-article-public-html-url:
+    description: >-
+      Article objects should expose a public HTML landing URL (url_public_html), which
+      for La Trobe resolves to opal.latrobe.edu.au.
+    message: "Article schema is missing the 'url_public_html' property."
+    severity: warn
+    given: $.components.schemas.Article.properties
+    then:
+      field: url_public_html
+      function: truthy
+
+  latrobe-opal-pagination-page-size-cap:
+    description: >-
+      Figshare list/search endpoints cap page_size at 1000; any declared maximum must
+      not exceed this.
+    message: "page_size maximum should not exceed 1000."
+    severity: warn
+    given: $..properties.page_size.maximum
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: integer
+          maximum: 1000
+formats:
+  - oas3

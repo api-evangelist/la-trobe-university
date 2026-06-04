@@ -46,6 +46,20 @@ apis:
         url: https://docs.figshare.com/
       - type: Website
         url: https://opal.latrobe.edu.au/
+      - type: OpenAPI
+        url: openapi/la-trobe-university-opal-figshare.yaml
+      - type: JSONSchema
+        url: json-schema/la-trobe-university-article-schema.json
+      - type: JSONStructure
+        url: json-structure/la-trobe-university-article-structure.json
+      - type: x-json-ld
+        url: json-ld/la-trobe-university-context.jsonld
+      - type: x-spectral-rules
+        url: rules/la-trobe-university-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/la-trobe-university-vocabulary.yml
+      - type: x-example
+        url: examples/la-trobe-university-get-article-example.json
   - aid: la-trobe-university:opal-figshare-oai-pmh
     name: OPAL (Open @ La Trobe) OAI-PMH Endpoint
     description: >-
