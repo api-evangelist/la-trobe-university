@@ -1,0 +1,93 @@
+---
+aid: la-trobe-university
+name: La Trobe University
+description: >-
+  La Trobe University is a public research university based in Melbourne, Victoria,
+  Australia, ranked #217 in the QS World University Rankings 2025. Like most
+  universities, La Trobe does not operate a single consolidated public developer
+  portal; the bulk of its API surface (an internal API gateway at api.latrobe.edu.au)
+  sits behind sign-in and institutional federation. Its most clearly public,
+  documented machine-readable interface is its open research repository, OPAL
+  (Open @ La Trobe), which is hosted on the Figshare platform and therefore exposes
+  the standard Figshare REST API and an OAI-PMH metadata endpoint for harvesting
+  open-access publications, theses, and research data. Library discovery runs on
+  Ex Libris Alma and Primo.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/la-trobe-university/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Australia
+  - Research
+  - Open Data
+  - Repository
+  - Library
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: la-trobe-university:opal-figshare-rest
+    name: OPAL (Open @ La Trobe) Figshare REST API
+    description: >-
+      OPAL is La Trobe University's institutional open-access repository, hosted on
+      the Figshare platform. Figshare exposes a public, documented REST API; La Trobe's
+      portal records are retrievable via the institution-scoped articles endpoint
+      (institution id 234). Returns publications, theses, datasets, and educational
+      resources with DOIs and Dublin Core / DataCite metadata. Verified live (HTTP 200).
+    humanURL: https://docs.figshare.com/
+    baseURL: https://api.figshare.com/v2
+    tags: [ Repository, Open Data, Research, Figshare, REST ]
+    properties:
+      - type: Documentation
+        url: https://docs.figshare.com/
+      - type: Website
+        url: https://opal.latrobe.edu.au/
+  - aid: la-trobe-university:opal-figshare-oai-pmh
+    name: OPAL (Open @ La Trobe) OAI-PMH Endpoint
+    description: >-
+      OAI-PMH metadata harvesting interface for the La Trobe OPAL repository, served
+      via the Figshare platform OAI provider, scoped to the La Trobe portal set
+      (portal_234) and supporting the oai_dc metadata prefix. Verified live (HTTP 200).
+    humanURL: https://docs.figshare.com/#oai_pmh
+    baseURL: https://api.figshare.com/v2/oai
+    tags: [ OAI-PMH, Repository, Open Data, Metadata, Harvesting ]
+    properties:
+      - type: Documentation
+        url: https://docs.figshare.com/#oai_pmh
+      - type: Website
+        url: https://opal.latrobe.edu.au/
+  - aid: la-trobe-university:api-gateway
+    name: La Trobe API Gateway (Gated)
+    description: >-
+      An institutional API gateway is reachable at api.latrobe.edu.au, but it is not a
+      public, self-service developer product. Unauthenticated requests return HTTP 302
+      redirecting to a /signin page, indicating access is restricted to authenticated
+      and/or institutionally affiliated consumers. No public API documentation or
+      open sign-up was found. Listed for transparency only; no endpoints are documented.
+    humanURL: https://api.latrobe.edu.au/
+    tags: [ Gated, Authentication, Internal, Gateway ]
+    properties:
+      - type: Authentication
+        url: https://api.latrobe.edu.au/signin
+common:
+  - type: Website
+    url: https://www.latrobe.edu.au/
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/la-trobe-university/
+  - type: Twitter
+    url: https://twitter.com/latrobe
+  - type: Plans
+    url: plans/la-trobe-university-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/la-trobe-university-rate-limits.yml
+  - type: FinOps
+    url: finops/la-trobe-university-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

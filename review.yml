@@ -1,0 +1,50 @@
+---
+name: La Trobe University
+description: La Trobe University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/la-trobe-university/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      La Trobe University has no consolidated public developer portal. The clearly
+      public, documented machine interface is its OPAL open-access repository, hosted
+      on Figshare, which exposes the standard Figshare REST API (institution=234) and
+      an OAI-PMH endpoint (set portal_234) — both verified live and returning data.
+      An institutional API gateway exists at api.latrobe.edu.au but redirects
+      unauthenticated traffic to a sign-in page and is not a public, documented,
+      self-service product. Library discovery runs on Ex Libris Alma/Primo. No
+      fabricated endpoints: only URLs probed live or backed by registry/vendor
+      documentation are recorded. Rating reflects limited but real public API maturity.
+    endpoints:
+      - url: https://www.latrobe.edu.au/
+        status: 403
+        note: Official website; 403 to automated curl (bot protection), site is live in browsers.
+      - url: https://api.figshare.com/v2/articles?institution=234&page_size=1
+        status: 200
+        note: OPAL records via Figshare REST API; returned live La Trobe article JSON.
+      - url: https://api.figshare.com/v2/oai?verb=Identify
+        status: 200
+        note: Figshare OAI-PMH provider serving the La Trobe OPAL portal set (portal_234).
+      - url: https://docs.figshare.com/
+        status: 200
+        note: Public Figshare API documentation (REST and OAI-PMH).
+      - url: https://opal.latrobe.edu.au/
+        status: 202
+        note: OPAL repository front-end (HTTP 202 from edge/CDN); live in browsers.
+      - url: https://api.latrobe.edu.au/
+        status: 302
+        note: Institutional API gateway; redirects to /signin — gated, not public/self-service.
+      - url: https://library.latrobe.edu.au/
+        status: 403
+        note: Library (Alma/Primo discovery); 403 to curl, live in browsers. No public API docs found.
+      - url: https://developer.latrobe.edu.au/
+        status: 0
+        note: Does not resolve — no public developer portal at this host.
+      - url: https://data.latrobe.edu.au/
+        status: 0
+        note: Does not resolve — no dedicated open-data portal at this host.
+      - url: https://www.linkedin.com/school/la-trobe-university/
+        status: 200
+        note: Official LinkedIn school page.
