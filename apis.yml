@@ -88,6 +88,8 @@ apis:
       - type: Authentication
         url: https://api.latrobe.edu.au/signin
 common:
+  - type: AgenticAccess
+    url: agentic-access/la-trobe-university-agentic-access.yml
   - type: DomainSecurity
     url: security/la-trobe-university-domain-security.yml
   - type: Website
