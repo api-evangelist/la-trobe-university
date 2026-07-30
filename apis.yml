@@ -13,9 +13,21 @@ description: >-
   open-access publications, theses, and research data. Library discovery runs on
   Ex Libris Alma and Primo.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/la-trobe-university.png
 url: https://raw.githubusercontent.com/api-evangelist/la-trobe-university/refs/heads/main/apis.yml
 tags:
   - Education
@@ -30,63 +42,93 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: la-trobe-university:opal-figshare-rest
-    name: OPAL (Open @ La Trobe) Figshare REST API
-    description: >-
-      OPAL is La Trobe University's institutional open-access repository, hosted on
-      the Figshare platform. Figshare exposes a public, documented REST API; La Trobe's
-      portal records are retrievable via the institution-scoped articles endpoint
-      (institution id 234). Returns publications, theses, datasets, and educational
-      resources with DOIs and Dublin Core / DataCite metadata. Verified live (HTTP 200).
-    humanURL: https://docs.figshare.com/
-    baseURL: https://api.figshare.com/v2
-    tags: [ Repository, Open Data, Research, Figshare, REST ]
-    properties:
-      - type: Documentation
-        url: https://docs.figshare.com/
-      - type: Website
-        url: https://opal.latrobe.edu.au/
-      - type: OpenAPI
-        url: openapi/la-trobe-university-opal-figshare.yaml
-      - type: JSONSchema
-        url: json-schema/la-trobe-university-article-schema.json
-      - type: JSONStructure
-        url: json-structure/la-trobe-university-article-structure.json
-      - type: x-json-ld
-        url: json-ld/la-trobe-university-context.jsonld
-      - type: x-spectral-rules
-        url: rules/la-trobe-university-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/la-trobe-university-vocabulary.yml
-      - type: x-example
-        url: examples/la-trobe-university-get-article-example.json
-  - aid: la-trobe-university:opal-figshare-oai-pmh
-    name: OPAL (Open @ La Trobe) OAI-PMH Endpoint
-    description: >-
-      OAI-PMH metadata harvesting interface for the La Trobe OPAL repository, served
-      via the Figshare platform OAI provider, scoped to the La Trobe portal set
-      (portal_234) and supporting the oai_dc metadata prefix. Verified live (HTTP 200).
-    humanURL: https://docs.figshare.com/#oai_pmh
-    baseURL: https://api.figshare.com/v2/oai
-    tags: [ OAI-PMH, Repository, Open Data, Metadata, Harvesting ]
-    properties:
-      - type: Documentation
-        url: https://docs.figshare.com/#oai_pmh
-      - type: Website
-        url: https://opal.latrobe.edu.au/
-  - aid: la-trobe-university:api-gateway
-    name: La Trobe API Gateway (Gated)
-    description: >-
-      An institutional API gateway is reachable at api.latrobe.edu.au, but it is not a
-      public, self-service developer product. Unauthenticated requests return HTTP 302
-      redirecting to a /signin page, indicating access is restricted to authenticated
-      and/or institutionally affiliated consumers. No public API documentation or
-      open sign-up was found. Listed for transparency only; no endpoints are documented.
-    humanURL: https://api.latrobe.edu.au/
-    tags: [ Gated, Authentication, Internal, Gateway ]
-    properties:
-      - type: Authentication
-        url: https://api.latrobe.edu.au/signin
+- aid: la-trobe-university:opal-figshare-oai-pmh
+  name: OPAL (Open @ La Trobe) OAI-PMH Endpoint
+  description: >-
+    OAI-PMH metadata harvesting interface for the La Trobe OPAL repository, served via the Figshare platform
+    OAI provider, scoped to the La Trobe portal set (portal_234) and supporting the oai_dc metadata prefix.
+    Verified live (HTTP 200).
+  humanURL: https://docs.figshare.com/#oai_pmh
+  baseURL: https://api.figshare.com/v2/oai
+  tags:
+  - OAI-PMH
+  - Repository
+  - Open Data
+  - Metadata
+  - Harvesting
+  properties:
+  - type: Documentation
+    url: https://docs.figshare.com/#oai_pmh
+  - type: Website
+    url: https://opal.latrobe.edu.au/
+- aid: la-trobe-university:api-gateway
+  name: La Trobe API Gateway (Gated)
+  description: >-
+    An institutional API gateway is reachable at api.latrobe.edu.au, but it is not a public, self-service
+    developer product. Unauthenticated requests return HTTP 302 redirecting to a /signin page, indicating
+    access is restricted to authenticated and/or institutionally affiliated consumers. No public API documentation
+    or open sign-up was found. Listed for transparency only; no endpoints are documented.
+  humanURL: https://api.latrobe.edu.au/
+  tags:
+  - Gated
+  - Authentication
+  - Internal
+  - Gateway
+  properties:
+  - type: Authentication
+    url: https://api.latrobe.edu.au/signin
+- aid: la-trobe-university:la-trobe-university-articles-api
+  name: La Trobe University articles API
+  description: The articles API from La Trobe University — 7 operation(s) for articles.
+  humanURL: https://docs.figshare.com/
+  baseURL: https://api.figshare.com/v2
+  tags:
+  - articles
+  properties:
+  - type: OpenAPI
+    url: openapi/la-trobe-university-articles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: Website
+    url: https://opal.latrobe.edu.au/
+  - type: JSONSchema
+    url: json-schema/la-trobe-university-article-schema.json
+  - type: JSONStructure
+    url: json-structure/la-trobe-university-article-structure.json
+  - type: x-json-ld
+    url: json-ld/la-trobe-university-context.jsonld
+  - type: x-spectral-rules
+    url: rules/la-trobe-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/la-trobe-university-vocabulary.yml
+  - type: x-example
+    url: examples/la-trobe-university-get-article-example.json
+- aid: la-trobe-university:la-trobe-university-collections-api
+  name: La Trobe University collections API
+  description: The collections API from La Trobe University — 4 operation(s) for collections.
+  humanURL: https://docs.figshare.com/
+  baseURL: https://api.figshare.com/v2
+  tags:
+  - collections
+  properties:
+  - type: OpenAPI
+    url: openapi/la-trobe-university-collections-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: Website
+    url: https://opal.latrobe.edu.au/
+  - type: JSONSchema
+    url: json-schema/la-trobe-university-article-schema.json
+  - type: JSONStructure
+    url: json-structure/la-trobe-university-article-structure.json
+  - type: x-json-ld
+    url: json-ld/la-trobe-university-context.jsonld
+  - type: x-spectral-rules
+    url: rules/la-trobe-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/la-trobe-university-vocabulary.yml
+  - type: x-example
+    url: examples/la-trobe-university-get-article-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/la-trobe-university-agentic-access.yml
