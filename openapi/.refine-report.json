@@ -1,0 +1,16 @@
+{
+  "provider": "la-trobe-university",
+  "sources": [
+    "la-trobe-university-articles-api-openapi.yml",
+    "la-trobe-university-collections-api-openapi.yml"
+  ],
+  "outputs": [
+    "la-trobe-university-articles-api-openapi.yml",
+    "la-trobe-university-collections-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
