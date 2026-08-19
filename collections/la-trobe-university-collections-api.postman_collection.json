@@ -1,0 +1,1328 @@
+{
+  "item": [
+    {
+      "id": "d1cb8203-5a0d-4613-af81-1451ea372539",
+      "name": "collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6c6f0be-8227-43fc-94a4-a0c356425a23",
+          "name": "Public Collections",
+          "request": {
+            "name": "Public Collections",
+            "description": {
+              "content": "Returns a list of public collections",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number. Used for pagination with page_size"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "The number of results included on a page. Used for pagination with page"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results included on a page. Used for pagination with query"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Where to start the listing (the offset of the first result). Used for pagination with limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "published_date",
+                  "description": "The field by which to order. Default varies by endpoint/resource."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "institution",
+                  "value": "<integer>",
+                  "description": "only return collections from this institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_since",
+                  "value": "<string>",
+                  "description": "Filter by collection publishing date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<string>",
+                  "description": "Filter by collection modified date. Will only return collections modified after the date. date(ISO 8601) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<integer>",
+                  "description": "only return collections from this group"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource_doi",
+                  "value": "<string>",
+                  "description": "only return collections with this resource_doi"
+                },
+                {
+                  "disabled": false,
+                  "key": "doi",
+                  "value": "<string>",
+                  "description": "only return collections with this doi"
+                },
+                {
+                  "disabled": false,
+                  "key": "handle",
+                  "value": "<string>",
+                  "description": "only return collections with this handle"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                "key": "X-Cursor",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9226a5a-4a21-4969-8bb9-8d5a5fc90130",
+              "name": "OK. An array of collections",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities.",
+                  "key": "X-Cursor",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"doi\": \"10.6084/m9.figshare.123\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 123,\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Sample collection\",\n    \"url\": \"https://api.figshare.com/v2/collections/123\"\n  },\n  {\n    \"doi\": \"10.6084/m9.figshare.123\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 123,\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Sample collection\",\n    \"url\": \"https://api.figshare.com/v2/collections/123\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "116edf51-796f-44de-a6ef-d9b49aedc939",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc3c27f8-fc46-4495-8828-27e8ff28ccda",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f6850b9-038e-4084-8909-6fe779654874",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68a3c29e-96cd-4fd4-9076-ba107101c7d4",
+          "name": "Public Collections Search",
+          "request": {
+            "name": "Public Collections Search",
+            "description": {
+              "content": "Returns a list of public collections",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                "key": "X-Cursor",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resource_doi\": \"<string>\",\n  \"doi\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"order\": \"created_date\",\n  \"search_for\": \"<string>\",\n  \"page\": \"<integer>\",\n  \"page_size\": 10,\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"order_direction\": \"desc\",\n  \"institution\": \"<integer>\",\n  \"published_since\": \"<string>\",\n  \"modified_since\": \"<string>\",\n  \"group\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b3a32bf-79c3-4f34-8242-87ff614c3148",
+              "name": "OK. An array of collections",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resource_doi\": \"10.6084/m9.figshare.1407024\",\n  \"doi\": \"10.6084/m9.figshare.1407024\",\n  \"handle\": \"10084/figshare.1407024\",\n  \"order\": \"published_date\",\n  \"search_for\": \"figshare\",\n  \"page\": 1,\n  \"page_size\": 10,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"order_direction\": \"desc\",\n  \"institution\": 2000013,\n  \"published_since\": \"2017-12-22\",\n  \"modified_since\": \"2017-12-22\",\n  \"group\": 2000013\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities.",
+                  "key": "X-Cursor",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"doi\": \"10.6084/m9.figshare.123\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 123,\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Sample collection\",\n    \"url\": \"https://api.figshare.com/v2/collections/123\"\n  },\n  {\n    \"doi\": \"10.6084/m9.figshare.123\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 123,\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Sample collection\",\n    \"url\": \"https://api.figshare.com/v2/collections/123\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "030674d9-7143-4a06-8584-805c9ab0d0c5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resource_doi\": \"10.6084/m9.figshare.1407024\",\n  \"doi\": \"10.6084/m9.figshare.1407024\",\n  \"handle\": \"10084/figshare.1407024\",\n  \"order\": \"published_date\",\n  \"search_for\": \"figshare\",\n  \"page\": 1,\n  \"page_size\": 10,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"order_direction\": \"desc\",\n  \"institution\": 2000013,\n  \"published_since\": \"2017-12-22\",\n  \"modified_since\": \"2017-12-22\",\n  \"group\": 2000013\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "676c7663-5659-457d-8e53-caacf4231809",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resource_doi\": \"10.6084/m9.figshare.1407024\",\n  \"doi\": \"10.6084/m9.figshare.1407024\",\n  \"handle\": \"10084/figshare.1407024\",\n  \"order\": \"published_date\",\n  \"search_for\": \"figshare\",\n  \"page\": 1,\n  \"page_size\": 10,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"order_direction\": \"desc\",\n  \"institution\": 2000013,\n  \"published_since\": \"2017-12-22\",\n  \"modified_since\": \"2017-12-22\",\n  \"group\": 2000013\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86eafc5f-a894-4ce1-b4ea-86eb323ac0c9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resource_doi\": \"10.6084/m9.figshare.1407024\",\n  \"doi\": \"10.6084/m9.figshare.1407024\",\n  \"handle\": \"10084/figshare.1407024\",\n  \"order\": \"published_date\",\n  \"search_for\": \"figshare\",\n  \"page\": 1,\n  \"page_size\": 10,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"order_direction\": \"desc\",\n  \"institution\": 2000013,\n  \"published_since\": \"2017-12-22\",\n  \"modified_since\": \"2017-12-22\",\n  \"group\": 2000013\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68cdceea-ee78-4878-8d58-f889aa8d679b",
+          "name": "Collection details",
+          "request": {
+            "name": "Collection details",
+            "description": {
+              "content": "View a collection",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":collection_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "collection_id",
+                  "description": "(Required) Collection Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b6aaa20-abb2-44e1-995f-bb88879a4388",
+              "name": "OK. Collection representation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"articles_count\": 1,\n  \"authors\": [\n    {\n      \"first_name\": \"John\",\n      \"full_name\": \"John Doe\",\n      \"id\": 97657,\n      \"is_active\": false,\n      \"last_name\": \"Doe\",\n      \"orcid_id\": \"1234-5678-9123-1234\",\n      \"url_name\": \"John_Doe\"\n    },\n    {\n      \"first_name\": \"John\",\n      \"full_name\": \"John Doe\",\n      \"id\": 97657,\n      \"is_active\": false,\n      \"last_name\": \"Doe\",\n      \"orcid_id\": \"1234-5678-9123-1234\",\n      \"url_name\": \"John_Doe\"\n    }\n  ],\n  \"categories\": [\n    {\n      \"id\": 11,\n      \"parent_id\": 1,\n      \"path\": \"/450/1024/6532\",\n      \"source_id\": \"300204\",\n      \"taxonomy_id\": 4,\n      \"title\": \"Anatomy\"\n    },\n    {\n      \"id\": 11,\n      \"parent_id\": 1,\n      \"path\": \"/450/1024/6532\",\n      \"source_id\": \"300204\",\n      \"taxonomy_id\": 4,\n      \"title\": \"Anatomy\"\n    }\n  ],\n  \"citation\": \"citation\",\n  \"created_date\": \"2017-05-15T15:12:26Z\",\n  \"custom_fields\": [\n    {\n      \"field_type\": \"textarea\",\n      \"is_mandatory\": false,\n      \"name\": \"key\",\n      \"order\": 1,\n      \"settings\": {\n        \"validations\": {\n          \"min_length\": 1,\n          \"max_length\": 1000\n        },\n        \"placeholder\": \"Enter your custom field here\"\n      },\n      \"value\": {}\n    },\n    {\n      \"field_type\": \"textarea\",\n      \"is_mandatory\": false,\n      \"name\": \"key\",\n      \"order\": 1,\n      \"settings\": {\n        \"validations\": {\n          \"min_length\": 1,\n          \"max_length\": 1000\n        },\n        \"placeholder\": \"Enter your custom field here\"\n      },\n      \"value\": {}\n    }\n  ],\n  \"description\": \"description\",\n  \"doi\": \"10.6084/m9.figshare.123\",\n  \"funding\": [\n    {\n      \"funder_name\": \"string\",\n      \"grant_code\": \"string\",\n      \"id\": 1,\n      \"is_user_defined\": 2471,\n      \"title\": \"Scholarly funding\",\n      \"url\": \"https://app.dimensions.ai/details/grant/1\"\n    },\n    {\n      \"funder_name\": \"string\",\n      \"grant_code\": \"string\",\n      \"id\": 1,\n      \"is_user_defined\": 3233,\n      \"title\": \"Scholarly funding\",\n      \"url\": \"https://app.dimensions.ai/details/grant/1\"\n    }\n  ],\n  \"group_id\": 1,\n  \"handle\": \"111184/figshare.1234\",\n  \"id\": 123,\n  \"institution_id\": 1,\n  \"keywords\": [\n    \"t1\",\n    \"t2\"\n  ],\n  \"modified_date\": \"2017-05-15T15:12:26Z\",\n  \"public\": true,\n  \"references\": [\n    \"string\",\n    \"string\"\n  ],\n  \"related_materials\": [\n    {\n      \"id\": 10432,\n      \"identifier\": \"10.6084/m9.figshare.1407024\",\n      \"identifier_type\": \"DOI\",\n      \"relation\": \"IsSupplementTo\",\n      \"title\": \"Figshare for institutions brochure\",\n      \"is_linkout\": false\n    }\n  ],\n  \"resource_doi\": \"10.6084/m9.figshare.123\",\n  \"resource_id\": \"\",\n  \"resource_link\": \"http://figshare.com\",\n  \"resource_title\": \"test\",\n  \"resource_version\": 0,\n  \"tags\": [\n    \"t1\",\n    \"t2\"\n  ],\n  \"timeline\": {\n    \"firstOnline\": \"2015-12-31\",\n    \"publisherPublication\": \"2015-12-31\",\n    \"publisherAcceptance\": \"2015-12-31\"\n  },\n  \"title\": \"Sample collection\",\n  \"url\": \"https://api.figshare.com/v2/collections/123\",\n  \"version\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea78f872-790f-4cbd-8a2c-1c010ac79626",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a905dfbb-9460-4b77-b94b-d341198748ba",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6a5c485-fbf2-4f46-8636-2c1297868162",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ac03794-d163-414c-a544-2ee15301a6c8",
+          "name": "Public Collection Articles",
+          "request": {
+            "name": "Public Collection Articles",
+            "description": {
+              "content": "Returns a list of public collection articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":collection_id",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number. Used for pagination with page_size"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "The number of results included on a page. Used for pagination with page"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results included on a page. Used for pagination with query"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Where to start the listing (the offset of the first result). Used for pagination with limit"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "collection_id",
+                  "description": "(Required) Collection Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f33d1c79-12d9-4289-81e0-0b0ad8d51275",
+              "name": "OK. An array of articles belonging to the collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_date\": \"2017-05-18T11:49:03Z\",\n    \"defined_type\": 3,\n    \"defined_type_name\": \"media\",\n    \"doi\": \"10.6084/m9.figshare.1434614\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 1434614,\n    \"resource_doi\": \"\",\n    \"resource_title\": \"\",\n    \"thumb\": \"https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png\",\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Test article title\",\n    \"url\": \"http://api.figshare.com/articles/1434614\",\n    \"url_private_api\": \"https://api.figshare.com/account/articles/1434614\",\n    \"url_private_html\": \"https://figshare.com/account/articles/1434614\",\n    \"url_public_api\": \"https://api.figshare.com/articles/1434614\",\n    \"url_public_html\": \"https://figshare.com/articles/media/Test_article_title/1434614\"\n  },\n  {\n    \"created_date\": \"2017-05-18T11:49:03Z\",\n    \"defined_type\": 3,\n    \"defined_type_name\": \"media\",\n    \"doi\": \"10.6084/m9.figshare.1434614\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 1434614,\n    \"resource_doi\": \"\",\n    \"resource_title\": \"\",\n    \"thumb\": \"https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png\",\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Test article title\",\n    \"url\": \"http://api.figshare.com/articles/1434614\",\n    \"url_private_api\": \"https://api.figshare.com/account/articles/1434614\",\n    \"url_private_html\": \"https://figshare.com/account/articles/1434614\",\n    \"url_public_api\": \"https://api.figshare.com/articles/1434614\",\n    \"url_public_html\": \"https://figshare.com/articles/media/Test_article_title/1434614\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "feee9a2f-d832-484e-8d4a-35b7fe5b60e3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23ee7fc9-191d-4402-831b-b790a9143fdb",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f95c66bb-2c8d-4570-b9b5-93bcce9a4e69",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4429e6b3-84ef-4fca-8a33-82434f5d2ed8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.figshare.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6281aeaf-fcdb-4a13-b330-da1092721df0",
+    "name": "La Trobe University OPAL (Figshare) Public articles collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public, machine-readable retrieval surface for La Trobe University's open-access repository, OPAL (Open @ La Trobe), which is hosted on the Figshare platform and served by the Figshare REST API v2. La Trobe records are institution-scoped (institution id 234). This document is a faithful subset of the upstream Figshare API 2.0 OpenAPI description (https://docs.figshare.com/swagger.json), limited to the public, unauthenticated article and collection retrieval/search/files/versions endpoints used to harvest OPAL content. No private/account or write operations are included.\n\nContact Support:\n Name: Figshare Support",
+      "type": "text/plain"
+    }
+  }
+}

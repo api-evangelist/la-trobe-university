@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "La Trobe University OPAL (Figshare) Public articles collections API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Public Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.figshare.com/v2/collections",
+            "headers": [
+              {
+                "name": "X-Cursor",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Used for pagination with page_size"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The number of results included on a page. Used for pagination with page"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results included on a page. Used for pagination with query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Where to start the listing (the offset of the first result). Used for pagination with limit"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The field by which to order. Default varies by endpoint/resource."
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "institution",
+                "value": "",
+                "type": "query",
+                "description": "only return collections from this institution"
+              },
+              {
+                "name": "published_since",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collection publishing date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD"
+              },
+              {
+                "name": "modified_since",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collection modified date. Will only return collections modified after the date. date(ISO 8601) YYYY-MM-DD"
+              },
+              {
+                "name": "group",
+                "value": "",
+                "type": "query",
+                "description": "only return collections from this group"
+              },
+              {
+                "name": "resource_doi",
+                "value": "",
+                "type": "query",
+                "description": "only return collections with this resource_doi"
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "query",
+                "description": "only return collections with this doi"
+              },
+              {
+                "name": "handle",
+                "value": "",
+                "type": "query",
+                "description": "only return collections with this handle"
+              }
+            ]
+          },
+          "docs": "Returns a list of public collections"
+        },
+        {
+          "info": {
+            "name": "Public Collections Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.figshare.com/v2/collections/search",
+            "headers": [
+              {
+                "name": "X-Cursor",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of public collections"
+        },
+        {
+          "info": {
+            "name": "Collection details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.figshare.com/v2/collections/:collection_id",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path",
+                "description": "Collection Unique identifier"
+              }
+            ]
+          },
+          "docs": "View a collection"
+        },
+        {
+          "info": {
+            "name": "Public Collection Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.figshare.com/v2/collections/:collection_id/articles",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path",
+                "description": "Collection Unique identifier"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Used for pagination with page_size"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The number of results included on a page. Used for pagination with page"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results included on a page. Used for pagination with query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Where to start the listing (the offset of the first result). Used for pagination with limit"
+              }
+            ]
+          },
+          "docs": "Returns a list of public collection articles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
