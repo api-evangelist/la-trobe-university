@@ -83,6 +83,8 @@ apis:
   humanURL: https://docs.figshare.com/
   baseURL: https://api.figshare.com/v2
   tags:
+  - Articles
+  tags_raw:
   - articles
   properties:
   - type: OpenAPI
@@ -109,6 +111,8 @@ apis:
   humanURL: https://docs.figshare.com/
   baseURL: https://api.figshare.com/v2
   tags:
+  - Collection
+  tags_raw:
   - collections
   properties:
   - type: OpenAPI
