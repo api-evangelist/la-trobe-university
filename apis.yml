@@ -148,6 +148,9 @@ apis:
   - type: x-example
     url: examples/la-trobe-university-get-article-example.json
 common:
+  - type: CapabilityMap
+    url: capabilities/la-trobe-university-capability-edges.yml
+    name: La Trobe University Business Capability Map
   - type: AgenticAccess
     url: agentic-access/la-trobe-university-agentic-access.yml
   - type: DomainSecurity
