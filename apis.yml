@@ -122,6 +122,11 @@ apis:
   baseURL: https://api.latrobe.edu.au/
   tags:
   - Gated
+  - Gateways
+  - Authentication
+  - Azure API Management
+  tags_raw:
+  - Gated
   - Gateway
   - Authentication
   - Azure API Management
@@ -143,6 +148,12 @@ apis:
   humanURL: https://opal.latrobe.edu.au/
   baseURL: https://opal.latrobe.edu.au/
   tags:
+  - Research Repository
+  - Open Access
+  - OAI-PMH
+  - Figshare
+  - Tenants
+  tags_raw:
   - Research Repository
   - Open Access
   - OAI-PMH
@@ -171,6 +182,13 @@ apis:
   humanURL: https://aaf.edu.au/
   baseURL: https://aaf.latrobe.edu.au/idp
   tags:
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - eduGAIN
+  - AAF
+  - Tenants
+  tags_raw:
   - Identity Federation
   - SAML
   - Shibboleth
