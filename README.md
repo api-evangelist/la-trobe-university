@@ -64,7 +64,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-La Trobe University is a public research university in Melbourne, Victoria, Australia, ranked #217 in the QS World University Rankings 2025. This repository catalogs La Trobe's public, verifiable developer/API footprint as an [APIs.json](https://apisjson.org) provider profile. La Trobe has no single consolidated public developer portal; its most clearly public, documented machine interface is the OPAL open-access research repository, hosted on Figshare, which exposes a REST API and an OAI-PMH endpoint.
+La Trobe University is a public research university in Bundoora, Melbourne, Victoria, Australia, ranked #217 in the QS World University Rankings 2025. This repository catalogs La Trobe's public, verifiable developer/API footprint as an [APIs.json](https://apisjson.org) provider profile. La Trobe publishes no API contract of its own — no OpenAPI, AsyncAPI or GraphQL description — and operates no public developer portal. Every surface here carries an `x-operator` saying who actually runs the thing it describes: one institution-operated but sign-in-gated API gateway, and two institutional tenancies on platforms someone else engineered.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/la-trobe-university/refs/heads/main/apis.yml
 - Run it with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=la-trobe-university-api-evangelist&utm_content=repo
@@ -75,13 +75,13 @@ La Trobe University is a public research university in Melbourne, Victoria, Aust
 
 ## Tags
 
-Education, Higher Education, University, Australia, Research, Open Data, Repository, Library
+Education, Higher Education, University, Australia, Victoria, Research, Research Repository, Course Catalog, Identity Federation, Library, Open Access
 
 ## APIs
 
-- **OPAL (Open @ La Trobe) Figshare REST API** — institution-scoped (institution=234) access to La Trobe open-access publications, theses, datasets, and educational resources. Docs: https://docs.figshare.com/ — Base: `https://api.figshare.com/v2`
-- **OPAL OAI-PMH Endpoint** — metadata harvesting for the La Trobe OPAL portal set (portal_234) via the Figshare OAI provider. Docs: https://docs.figshare.com/#oai_pmh — Base: `https://api.figshare.com/v2/oai`
-- **La Trobe API Gateway (Gated)** — an institutional gateway at `api.latrobe.edu.au` exists but redirects unauthenticated traffic to a sign-in page; not a public, self-service, or documented product. Listed for transparency only.
+- **La Trobe API Gateway (Gated)** — `x-operator: institution`. An Azure API Management instance at `api.latrobe.edu.au` (CNAME `ltu-api-prod-apim.developer.azure-api.net`). Every path — `/apis`, `/developer`, `/.well-known/openid-configuration` — returns the APIM sign-in page. No catalogue, no specification, no open sign-up. Listed for transparency only.
+- **OPAL (Open @ La Trobe) Research Repository** — `x-operator: tenant`. La Trobe's open-access repository, deployed on Figshare: `opal.latrobe.edu.au` is a CNAME to `figshare.com` and `researchdata.latrobe.edu.au` redirects to `latrobe.figshare.com`. The data, the DOI prefix `10.26181` and the OAI-PMH set `portal_234` are La Trobe's; the API contract is Figshare's and is scored against Figshare. Set-scoped harvest: `https://api.figshare.com/v2/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&set=portal_234` (HTTP 200, verified 2026-08-30).
+- **La Trobe Shibboleth Identity Provider (AAF)** — `x-operator: tenant`. SAML 2.0 metadata served unauthenticated at `https://aaf.latrobe.edu.au/idp/shibboleth` (HTTP 200, application/xml). entityID `https://aaf.latrobe.edu.au/idp/shibboleth`, `shibmd:Scope latrobe.edu.au`, also carried in the AAF federation aggregate and through it into eduGAIN. Marked tenant because `aaf.latrobe.edu.au` CNAMEs to `idp-cname.aaf.edu.au`: the identity namespace is La Trobe's, the Shibboleth deployment is the Australian Access Federation's.
 
 ## Plans, Rate Limits, and FinOps
 
@@ -92,13 +92,20 @@ Education, Higher Education, University, Australia, Research, Open Data, Reposit
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-30
 
 ## Common Properties
 
 - Website: https://www.latrobe.edu.au/
 - LinkedIn: https://www.linkedin.com/school/la-trobe-university/
 - Twitter: https://twitter.com/latrobe
+- Research Repository: https://opal.latrobe.edu.au/
+- Course Catalog: https://handbook.latrobe.edu.au/
+- Library Catalog: https://latrobe.primo.exlibrisgroup.com/discovery/search?vid=61LATROBE_INST:LATROBE
+- Identity Federation: https://aaf.latrobe.edu.au/idp/shibboleth
+- Conformance: conformance/la-trobe-university-conformance.yml
+- JSON-LD: json-ld/la-trobe-university-context.jsonld
+- Domain Security: security/la-trobe-university-domain-security.yml
 - Plans: plans/la-trobe-university-plans-pricing.yml
 - Rate Limits: rate-limits/la-trobe-university-rate-limits.yml
 - FinOps: finops/la-trobe-university-finops.yml
@@ -106,7 +113,15 @@ Education, Higher Education, University, Australia, Research, Open Data, Reposit
 
 ## Notes
 
-Verification discipline: no endpoints were fabricated. The Figshare REST and OAI-PMH endpoints were probed live and returned La Trobe data (HTTP 200). The OPAL platform (Figshare) is confirmed via the re3data registry entry (r3d100013575). The official website and library hosts return 403 to automated requests (bot protection) but are live in browsers. `developer.latrobe.edu.au` and `data.latrobe.edu.au` do not resolve. The `api.latrobe.edu.au` gateway returns HTTP 302 to a sign-in page and is not publicly documented. Library discovery runs on Ex Libris Alma/Primo. There is no official central La Trobe GitHub organization (only departmental/student groups such as CDAC-lab and gdglatrobe), so no GitHub common property is asserted.
+Re-profiled 2026-08-30 under the API Evangelist university pipeline, which settles operator attribution before saving any contract.
+
+**What was removed.** The 2026-06-03 profile stored the Figshare REST API v2 under La Trobe's name as two refined OpenAPIs (`articles`, `collections`) plus their pristine source, and every artifact derived from them: OpenCollection and Postman collections, four examples, a JSON Schema, a JSON Structure, two Spectral rulesets, a vocabulary, an agentic-access contract and a capability map. Those documents describe `https://api.figshare.com/v2` with `info.contact: Figshare Support` — the same contract at least five other institutions in this cohort were also credited with. Twenty-one files were removed. Nothing La Trobe authored was deleted, because La Trobe has authored no API contract.
+
+**What survived and what is new.** The OPAL relationship was not deleted, it was re-labelled `x-operator: tenant` — it is a real institutional fact and one of the few programmable surfaces La Trobe has. Newly found and verified: the AAF/eduGAIN Shibboleth identity provider, the CourseLoop-backed course handbook, the Ex Libris Primo discovery layer, and a `conformance/` record for the education-regime domain standards.
+
+**Verification discipline.** No endpoints were fabricated and no OpenAPI was generated for a surface that does not publish one. Every URL asserted here was probed on 2026-08-30. `developer.latrobe.edu.au` and `data.latrobe.edu.au` do not resolve; there is no CKAN or Socrata portal and no institution-hosted OAI-PMH responder (`opal.latrobe.edu.au/oai` answers HTTP 202 with an empty body). The CourseLoop backend (`cf-api-ap-southeast-2.prod.courseloop.com`) refuses unauthenticated calls. Every page on `latrobe.edu.au` sits behind a Cloudflare managed challenge and answers 403 to any non-browser client — including `/robots.txt`, `/llms.txt` and `/.well-known/security.txt` — so no terms, privacy or policy pointer could be verified and none is claimed. Registry identity that *is* La Trobe's own was confirmed directly: DataCite provider `latrobe` with prefix `10.26181` over 47,824 DOIs, Crossref member 11371, ROR 01rxfrp27. There is no official central La Trobe GitHub organization — `LaTrobeUniversity` and `La-Trobe-University` both exist and both hold zero public repositories — so no GitHub pointer is asserted.
+
+**A correction that lowers the score is the pipeline working.** This profile will score lower than the June one did. The June number was Figshare's.
 
 ## Maintainers
 

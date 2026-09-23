@@ -1,0 +1,96 @@
+generated: '2026-08-30'
+method: generated
+basis: probed
+source: >-
+  Live probes of La Trobe University hosts and of the third-party registries that hold
+  La Trobe's own entries (AAF/eduGAIN SAML metadata, DataCite, Crossref, ROR, the
+  Figshare OAI-PMH provider serving the La Trobe portal set). No conformance below is
+  read from a prose claim on a La Trobe web page.
+note: >-
+  Education-regime domain standards (Kin Score 0.12.0). La Trobe University publishes no
+  OpenAPI, AsyncAPI or GraphQL schema of its own, so nothing here is derived from an
+  institution-authored API contract; every hit is a machine-readable registry entry or a
+  live protocol endpoint carrying La Trobe's own identifiers. Where the endpoint is run
+  by a platform on La Trobe's behalf, the operator is stated on the entry.
+standards:
+- id: saml
+  conforms: true
+  operator: tenant
+  evidence: >-
+    SAML 2.0 EntityDescriptor served at https://aaf.latrobe.edu.au/idp/shibboleth (HTTP 200,
+    application/xml, 4,447 bytes, 2026-08-30). entityID="https://aaf.latrobe.edu.au/idp/shibboleth";
+    IDPSSODescriptor with protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol";
+    SingleSignOnService bindings HTTP-POST and HTTP-Redirect at
+    /idp/profile/SAML2/POST/SSO and /idp/profile/SAML2/Redirect/SSO;
+    OrganizationName "latrobe.edu.au", OrganizationURL "https://latrobe.edu.au".
+- id: shibboleth
+  conforms: true
+  operator: tenant
+  evidence: >-
+    The same EntityDescriptor carries the Shibboleth metadata extension
+    <shibmd:Scope regexp="false">latrobe.edu.au</shibmd:Scope> and SAML1 artifact-resolution and
+    attribute-query endpoints on :8443, the Shibboleth IdP signature. The host
+    aaf.latrobe.edu.au is a CNAME to 50fc96936b5e207719a6a235131a8150.idp-cname.aaf.edu.au,
+    so the software is run by the Australian Access Federation under La Trobe's domain and
+    entityID — the identity namespace (scope latrobe.edu.au) is La Trobe's, the deployment is AAF's.
+- id: oai-pmh
+  conforms: true
+  operator: tenant
+  evidence: >-
+    OAI-PMH 2.0 provider answers for the La Trobe set. GET
+    https://api.figshare.com/v2/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&set=portal_234
+    returns HTTP 200 text/xml with <setSpec>portal_234</setSpec> headers dated 2026-08-28
+    (checked 2026-08-30). portal_234 is the OPAL (Open @ La Trobe) portal set. The verb=Identify
+    response is HTTP 200. The provider is Figshare's; only the set is La Trobe's — no OAI-PMH
+    responder was found on a latrobe.edu.au host (opal.latrobe.edu.au/oai returns HTTP 202,
+    0 bytes).
+- id: datacite
+  conforms: true
+  operator: institution
+  evidence: >-
+    La Trobe University is a DataCite member in its own right. GET
+    https://api.datacite.org/providers/latrobe returns HTTP 200 with
+    memberType "consortium_organization", organizationType "academicInstitution",
+    website https://www.latrobe.edu.au/, created 2020-05-14. One repository
+    (latrobe.repo) and one DOI prefix, 10.26181, are registered to it; a prefix query
+    (https://api.datacite.org/dois?prefix=10.26181) reports 47,824 DOIs, resolving to
+    opal.latrobe.edu.au landing pages.
+- id: crossref
+  conforms: true
+  operator: institution
+  evidence: >-
+    Crossref member 11371, primary-name "La Trobe University". GET
+    https://api.crossref.org/members/11371 returns HTTP 200 (2026-08-30).
+- id: orcid
+  conforms: unknown
+  evidence: >-
+    No machine-readable evidence of an institutional ORCID membership or an ORCID
+    integration endpoint on a latrobe.edu.au host was found. OPAL records carry ORCID
+    identifiers on author objects, but that is a Figshare platform field, not a La Trobe
+    interface, so it is not counted here.
+- id: scim
+  conforms: false
+  evidence: >-
+    No SCIM endpoint found. The only institution-operated API host, api.latrobe.edu.au,
+    is an Azure API Management developer portal that redirects every unauthenticated path
+    to /signin (HTTP 200 on the sign-in page), so nothing it fronts is externally visible.
+- id: lti
+  conforms: false
+  evidence: >-
+    No LTI tool or platform registration endpoint (/.well-known/lti-*, /lti/) responded on
+    any latrobe.edu.au host probed on 2026-08-30.
+- id: oneroster
+  conforms: false
+  evidence: No OneRoster endpoint or claim found on any La Trobe host.
+- id: ed-fi
+  conforms: false
+  evidence: No Ed-Fi endpoint or claim found; Ed-Fi is a US K-12 standard and is not expected here.
+- id: caliper
+  conforms: false
+  evidence: No Caliper Analytics endpoint or claim found on any La Trobe host.
+- id: qti
+  conforms: false
+  evidence: No QTI item bank or assessment interface found on any La Trobe host.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

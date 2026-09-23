@@ -3,8 +3,86 @@ name: La Trobe University
 description: La Trobe University public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/la-trobe-university/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
+  - date: '2026-08-30'
+    rating: 1
+    summary: >-
+      Re-reviewed under the university pipeline, which settles who OPERATES each surface
+      before crediting any contract. La Trobe University authors no API contract of its
+      own — no OpenAPI, AsyncAPI or GraphQL description exists on any latrobe.edu.au host.
+      Its one institution-operated API host, api.latrobe.edu.au, is an Azure API Management
+      developer portal (CNAME ltu-api-prod-apim.developer.azure-api.net) that returns the
+      sign-in page for every path, so the catalogue behind it is not externally observable.
+      The surfaces the June 2026 review credited to La Trobe are tenancies: OPAL is Figshare
+      (opal.latrobe.edu.au CNAMEs to figshare.com), the course handbook is CourseLoop, library
+      discovery and resource management are Ex Libris Primo and Alma, and the Shibboleth IdP
+      is run by the Australian Access Federation under La Trobe's domain and entityID. The
+      Figshare REST API v2 contract and its nineteen derived artifacts were removed from this
+      repository; the OPAL relationship was kept and re-labelled as a tenancy rather than
+      deleted. What La Trobe genuinely holds in its own name is registry identity — DataCite
+      provider `latrobe` with prefix 10.26181 over 47,824 DOIs, Crossref member 11371, ROR
+      01rxfrp27 — and a machine-readable SAML entity in AAF/eduGAIN. Rating drops from 2 to 1
+      because the earlier number was measuring Figshare's engineering, not La Trobe's.
+    endpoints:
+      - url: https://api.latrobe.edu.au/
+        status: 200
+        note: >-
+          Azure API Management developer portal on La Trobe's own domain; every path
+          (/apis, /developer, /.well-known/openid-configuration) returns the sign-in page.
+      - url: https://aaf.latrobe.edu.au/idp/shibboleth
+        status: 200
+        note: >-
+          SAML 2.0 EntityDescriptor, application/xml, 4,447 bytes. entityID
+          https://aaf.latrobe.edu.au/idp/shibboleth, shibmd:Scope latrobe.edu.au.
+          Host CNAMEs to idp-cname.aaf.edu.au — AAF-operated, La Trobe-owned namespace.
+      - url: https://md.aaf.edu.au/aaf-metadata.xml
+        status: 200
+        note: AAF federation aggregate; carries the La Trobe entity, and through AAF into eduGAIN.
+      - url: https://api.figshare.com/v2/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&set=portal_234
+        status: 200
+        note: >-
+          OAI-PMH set portal_234 (OPAL) returns La Trobe records dated 2026-08-28. The set is
+          La Trobe's; the provider is Figshare's. No institution-hosted responder exists —
+          opal.latrobe.edu.au/oai answers HTTP 202 with an empty body.
+      - url: https://opal.latrobe.edu.au/
+        status: 202
+        note: OPAL front end; DNS CNAME to figshare.com. Tenant, not institution-operated.
+      - url: https://researchdata.latrobe.edu.au/
+        status: 202
+        note: Redirects to latrobe.figshare.com — a second alias onto the same Figshare tenancy.
+      - url: https://handbook.latrobe.edu.au/
+        status: 200
+        note: >-
+          Course handbook, a CourseLoop deployment (API_DOMAIN api-ap-southeast-2.prod.courseloop.com,
+          siteId ltu-prod-pres). No public course API; the backend refuses unauthenticated calls.
+      - url: https://cf-api-ap-southeast-2.prod.courseloop.com/publisher/search-all?siteId=ltu-prod-pres
+        status: 403
+        note: CourseLoop backend — "Missing Authentication Token". Not a public surface.
+      - url: https://latrobe.primo.exlibrisgroup.com/discovery/search?vid=61LATROBE_INST:LATROBE
+        status: 200
+        note: Ex Libris Primo discovery, view 61LATROBE_INST:LATROBE. Vendor platform, institutional view.
+      - url: https://api.datacite.org/providers/latrobe
+        status: 200
+        note: DataCite member in La Trobe's own name; prefix 10.26181, repository latrobe.repo.
+      - url: https://api.crossref.org/members/11371
+        status: 200
+        note: Crossref member "La Trobe University".
+      - url: https://api.ror.org/organizations/01rxfrp27
+        status: 200
+        note: ROR record for La Trobe University.
+      - url: https://www.latrobe.edu.au/
+        status: 403
+        note: >-
+          Cloudflare managed challenge on every path, /robots.txt, /llms.txt and
+          /.well-known/security.txt included. Live in a browser; unverifiable to a client.
+          No terms, privacy or policy pointer is claimed as a result.
+      - url: https://developer.latrobe.edu.au/
+        status: 0
+        note: Does not resolve — no public developer portal.
+      - url: https://data.latrobe.edu.au/
+        status: 0
+        note: Does not resolve — no CKAN/Socrata open-data portal.
   - date: '2026-06-03'
     rating: 2
     summary: >-
