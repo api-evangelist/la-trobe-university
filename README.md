@@ -1,4 +1,4 @@
-# La Trobe University (la-trobe-university)
+# La Trobe University
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,65 +64,115 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-La Trobe University is a public research university in Bundoora, Melbourne, Victoria, Australia, ranked #217 in the QS World University Rankings 2025. This repository catalogs La Trobe's public, verifiable developer/API footprint as an [APIs.json](https://apisjson.org) provider profile. La Trobe publishes no API contract of its own — no OpenAPI, AsyncAPI or GraphQL description — and operates no public developer portal. Every surface here carries an `x-operator` saying who actually runs the thing it describes: one institution-operated but sign-in-gated API gateway, and two institutional tenancies on platforms someone else engineered.
+La Trobe University is a public research university headquartered in Bundoora, Melbourne, Victoria, Australia, founded in 1964 and ranked #217 in the QS World University Rankings 2025. La Trobe operates no public, self-service API product and publishes no OpenAPI, AsyncAPI or GraphQL description of its own. Its single institution-operated API host, api.latrobe.edu.au, is an Azure API Management developer portal (CNAME ltu-api-prod-apim.developer.azure-api.net) that redirects every unauthenticated path to /signin, with no public catalogue, documentation or sign-up. Everything else that looks programmable under the La Trobe name is a vendor platform running under an institutional tenancy: the open-access repository OPAL (opal.latrobe.edu.au, CNAME figshare.com) and its alias researchdata.latrobe.edu.au are Figshare; the course handbook (handbook.latrobe.edu.au) is CourseLoop, whose backend at cf-api-ap-southeast-2.prod.courseloop.com refuses unauthenticated calls; library discovery and resource management are Ex Libris Primo and Alma; the Shibboleth identity provider at aaf.latrobe.edu.au is operated by the Australian Access Federation under La Trobe's own domain, entityID and scope. What La Trobe genuinely holds in its own name is registry identity — a DataCite membership with the DOI prefix 10.26181 over 47,824 DOIs, Crossref member 11371, ROR 01rxfrp27, and the AAF/eduGAIN SAML entity that federates its staff and students. That is the honest footprint: institutional identity and stewardship, not institutional engineering.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/la-trobe-university/refs/heads/main/apis.yml
-- Run it with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=la-trobe-university-api-evangelist&utm_content=repo
+**Areas:** Education · Higher Education · University · Australia · Victoria · Research · Research Repository · Course Catalog · Identity Federation · Library · Open Access
 
-## Type
+## La Trobe University on APIs.io
 
-- Index / Consumer / 3rd-Party
+Everything profiled for La Trobe University is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/la-trobe-university/](https://apis.io/providers/la-trobe-university/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-Education, Higher Education, University, Australia, Victoria, Research, Research Repository, Course Catalog, Identity Federation, Library, Open Access
+- [La Trobe API Gateway (Gated)](https://apis.io/apis/la-trobe-university/api-gateway/) — La Trobe's own API gateway, an Azure API Management instance published at api.latrobe.edu.au (CNAME ltu-api-prod-apim.developer.azure-api.net). It is not a…
+- [OPAL (Open @ La Trobe) Research Repository](https://apis.io/apis/la-trobe-university/opal-figshare-repository/) — OPAL is La Trobe's open-access research repository — its publications, theses, datasets and DOIs — deployed as an institutional tenancy on Figshare.…
+- [La Trobe Shibboleth Identity Provider (AAF)](https://apis.io/apis/la-trobe-university/aaf-shibboleth-idp/) — La Trobe's SAML 2.0 identity provider in the Australian Access Federation, and through AAF in eduGAIN. The entity is La Trobe's — entityID…
 
-## APIs
+### Published properties
 
-- **La Trobe API Gateway (Gated)** — `x-operator: institution`. An Azure API Management instance at `api.latrobe.edu.au` (CNAME `ltu-api-prod-apim.developer.azure-api.net`). Every path — `/apis`, `/developer`, `/.well-known/openid-configuration` — returns the APIM sign-in page. No catalogue, no specification, no open sign-up. Listed for transparency only.
-- **OPAL (Open @ La Trobe) Research Repository** — `x-operator: tenant`. La Trobe's open-access repository, deployed on Figshare: `opal.latrobe.edu.au` is a CNAME to `figshare.com` and `researchdata.latrobe.edu.au` redirects to `latrobe.figshare.com`. The data, the DOI prefix `10.26181` and the OAI-PMH set `portal_234` are La Trobe's; the API contract is Figshare's and is scored against Figshare. Set-scoped harvest: `https://api.figshare.com/v2/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&set=portal_234` (HTTP 200, verified 2026-08-30).
-- **La Trobe Shibboleth Identity Provider (AAF)** — `x-operator: tenant`. SAML 2.0 metadata served unauthenticated at `https://aaf.latrobe.edu.au/idp/shibboleth` (HTTP 200, application/xml). entityID `https://aaf.latrobe.edu.au/idp/shibboleth`, `shibmd:Scope latrobe.edu.au`, also carried in the AAF federation aggregate and through it into eduGAIN. Marked tenant because `aaf.latrobe.edu.au` CNAMEs to `idp-cname.aaf.edu.au`: the identity namespace is La Trobe's, the Shibboleth deployment is the Australian Access Federation's.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans, Rate Limits, and FinOps
+#### JSON-LD (1)
 
-- Plans / Pricing: [plans/la-trobe-university-plans-pricing.yml](plans/la-trobe-university-plans-pricing.yml)
-- Rate Limits: [rate-limits/la-trobe-university-rate-limits.yml](rate-limits/la-trobe-university-rate-limits.yml)
-- FinOps: [finops/la-trobe-university-finops.yml](finops/la-trobe-university-finops.yml)
+Linked-data contexts for the provider's vocabulary.
 
-## Timestamps
+- [La Trobe University Context](https://apis.io/jsonld/la-trobe-university/la-trobe-university-context/)
 
-- Created: 2026-06-03
-- Modified: 2026-08-30
+#### Vocabulary (1)
 
-## Common Properties
+The provider's domain terms, defined.
 
-- Website: https://www.latrobe.edu.au/
-- LinkedIn: https://www.linkedin.com/school/la-trobe-university/
-- Twitter: https://twitter.com/latrobe
-- Research Repository: https://opal.latrobe.edu.au/
-- Course Catalog: https://handbook.latrobe.edu.au/
-- Library Catalog: https://latrobe.primo.exlibrisgroup.com/discovery/search?vid=61LATROBE_INST:LATROBE
-- Identity Federation: https://aaf.latrobe.edu.au/idp/shibboleth
-- Conformance: conformance/la-trobe-university-conformance.yml
-- JSON-LD: json-ld/la-trobe-university-context.jsonld
-- Domain Security: security/la-trobe-university-domain-security.yml
-- Plans: plans/la-trobe-university-plans-pricing.yml
-- Rate Limits: rate-limits/la-trobe-university-rate-limits.yml
-- FinOps: finops/la-trobe-university-finops.yml
-- Review: review.yml
+- [La Trobe University OPAL (Figshare) Vocabulary](https://apis.io/vocabularies/la-trobe-university/la-trobe-university-vocabulary/)
 
-## Notes
+#### Security (1)
 
-Re-profiled 2026-08-30 under the API Evangelist university pipeline, which settles operator attribution before saving any contract.
+Authentication, trust centre, and vulnerability disclosure.
 
-**What was removed.** The 2026-06-03 profile stored the Figshare REST API v2 under La Trobe's name as two refined OpenAPIs (`articles`, `collections`) plus their pristine source, and every artifact derived from them: OpenCollection and Postman collections, four examples, a JSON Schema, a JSON Structure, two Spectral rulesets, a vocabulary, an agentic-access contract and a capability map. Those documents describe `https://api.figshare.com/v2` with `info.contact: Figshare Support` — the same contract at least five other institutions in this cohort were also credited with. Twenty-one files were removed. Nothing La Trobe authored was deleted, because La Trobe has authored no API contract.
+- [La Trobe University Domain Security](https://apis.io/security/la-trobe-university/la-trobe-university-domain-security/)
 
-**What survived and what is new.** The OPAL relationship was not deleted, it was re-labelled `x-operator: tenant` — it is a real institutional fact and one of the few programmable surfaces La Trobe has. Newly found and verified: the AAF/eduGAIN Shibboleth identity provider, the CourseLoop-backed course handbook, the Ex Libris Primo discovery layer, and a `conformance/` record for the education-regime domain standards.
+#### Plans and pricing (1)
 
-**Verification discipline.** No endpoints were fabricated and no OpenAPI was generated for a surface that does not publish one. Every URL asserted here was probed on 2026-08-30. `developer.latrobe.edu.au` and `data.latrobe.edu.au` do not resolve; there is no CKAN or Socrata portal and no institution-hosted OAI-PMH responder (`opal.latrobe.edu.au/oai` answers HTTP 202 with an empty body). The CourseLoop backend (`cf-api-ap-southeast-2.prod.courseloop.com`) refuses unauthenticated calls. Every page on `latrobe.edu.au` sits behind a Cloudflare managed challenge and answers 403 to any non-browser client — including `/robots.txt`, `/llms.txt` and `/.well-known/security.txt` — so no terms, privacy or policy pointer could be verified and none is claimed. Registry identity that *is* La Trobe's own was confirmed directly: DataCite provider `latrobe` with prefix `10.26181` over 47,824 DOIs, Crossref member 11371, ROR 01rxfrp27. There is no official central La Trobe GitHub organization — `LaTrobeUniversity` and `La-Trobe-University` both exist and both hold zero public repositories — so no GitHub pointer is asserted.
+Published plans, tiers and prices.
 
-**A correction that lowers the score is the pipeline working.** This profile will score lower than the June one did. The June number was Figshare's.
+- [La Trobe University Plans Pricing](https://apis.io/plans/la-trobe-university/la-trobe-university-plans-pricing/)
 
-## Maintainers
+#### Rate limits (1)
 
-- Kin Lane — kin@apievangelist.com
+Published request limits.
+
+- [La Trobe University Rate Limits](https://apis.io/rate-limits/la-trobe-university/la-trobe-university-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [La Trobe University Finops](https://apis.io/finops/la-trobe-university/la-trobe-university-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.latrobe.edu.au/)
+
+## API Evangelist rating
+
+**Kin Score 15.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 14.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 5.3 |
+
+**Agent readiness 3.1** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/la-trobe-university/](https://apis.io/providers/la-trobe-university/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for La Trobe University: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/la-trobe-university/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
